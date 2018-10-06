@@ -11,7 +11,7 @@ module.exports = {
       if (!user) {
         new Form({id: id}).save()
       } else if (user.name && user.address && user.phone) {
-        const question = `Вы уже делали заказ. Использовать ранее введённые данные?\n\n<b>Имя:</b> ${user.name}\n<b>Адрес доставки:</b> ${user.address}\n<b>Телефон:</b> ${user.phone}`
+        const question = `Вы уже делали заказ. Использовать ранее введённые данные?\n\n<b>Как Ваше имя? Ваше имя пользователя в Telegram или номер телефона - привязанный к Вашему аккаунту (чтобы Наш эксперт смог с Вами связаться)</b> ${user.name}\n<b>Какой Вы хотите получить результат?</b> ${user.address}\n<b>Примерный бюджет, доп поле.</b> ${user.phone}`
         return bot.sendMessage(user.id, question, {
           parse_mode: 'HTML',
           reply_markup: {
