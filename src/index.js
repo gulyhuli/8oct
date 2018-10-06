@@ -78,8 +78,8 @@ bot.onText(/^\/[a-zA-Z]+$/, msg => {
     case '/start':
     case '/help':
       bot.sendMessage(id, helper.description).then(() => {
-	       return bot.sendMessage(id, `Я не я, корова не моя`,
         return bot.sendMessage(id, `Выберите пункт меню`, {
+		return bot.sendMessage(id, `Выберите пункт меню`, {
           reply_markup: {
             keyboard: keyboard.home,
             resize_keyboard: true
