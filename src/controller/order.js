@@ -30,7 +30,7 @@ module.exports = {
       }
 
       // First question
-      bot.sendMessage(id, `Как Ваше имя?`, replyMarkup)
+      bot.sendMessage(id, `Как Ваше имя? Ваше имя пользователя в Telegram или номер телефона - привязанный к Вашему аккаунту (чтобы Наш эксперт смог с Вами связаться)`, replyMarkup)
         .then(async msg => {
           const user = await Form.findOne({id: id})
           const replyId = bot.onReplyToMessage(id, msg.message_id, msg => {
@@ -38,14 +38,14 @@ module.exports = {
             bot.removeReplyListener(replyId)
 
             // Second question
-            bot.sendMessage(id, `Укажите адрес доставки`, replyMarkup)
+            bot.sendMessage(id, `Какой Вы хотите получить результат?`, replyMarkup)
               .then(msg => {
                 const replyId = bot.onReplyToMessage(id, msg.message_id, msg => {
                   user.set('address', msg.text).save()
                   bot.removeReplyListener(replyId)
 
                   // Third question
-                  bot.sendMessage(id, `Оставьте контактный номер телефона`, replyMarkup)
+                  bot.sendMessage(id, `Примерный бюджет, доп поле.`, replyMarkup)
                     .then(msg => {
                       const replyId = bot.onReplyToMessage(id, msg.message_id, msg => {
                         user.set('phone', msg.text).save()
@@ -69,8 +69,8 @@ module.exports = {
       const order = await Form.findOne({id: id})
       const orderDetails = user.cart.slice(1).map(item => `<em>${item.title}</em>`).join('\n')
       const totalPrice = CartController.getTotalPrice(user)
-      const userDetails = `<b>Имя:</b> ${order.name}\n<b>Адрес доставки:</b> ${order.address}\n<b>Телефон:</b> ${order.phone}`
-      bot.sendMessage(500443845, `<b>Новый заказ!</b>\n\n${orderDetails}<em>\nСумма заказа ${typeof(totalPrice) === 'number' ? totalPrice : totalPrice.total} ${rub}</em>\n\n${userDetails}`, {parse_mode: 'HTML'})
+      const userDetails = `<b>Имя, либо TG, номер:</b> ${order.name}\n<b>Желает получить:</b> ${order.address}\n<b>Бюджет, сроки, доп поле.:</b> ${order.phone}`
+      bot.sendMessage(600909887, `<b>Новый заказ!</b>\n\n${orderDetails}<em>\nСумма заказа ${typeof(totalPrice) === 'number' ? totalPrice : totalPrice.total} ${rub}</em>\n\n${userDetails}`, {parse_mode: 'HTML'})
         .then(() => bot.sendMessage(user.userId, 'Спасибо за заказ! В ближайшее время с Вами свяжется наш менеджер.'))
         .then(() => CartController.clearCart(user))
     } catch (error) {
