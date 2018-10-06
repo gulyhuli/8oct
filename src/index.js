@@ -80,8 +80,8 @@ bot.onText(/^\/[a-zA-Z]+$/, msg => {
       bot.sendMessage(id, helper.description).then(() => {
 	       bot.sendMessage(id, `Выберите пункт меню ⬆
 Акция!
-Получи 124 рублея`,
-		return bot.sendMessage(id, helper.description){
+Получи 124 рублея`),
+		return bot.sendMessage(id, helper.description,{
 			
 			    
 	
