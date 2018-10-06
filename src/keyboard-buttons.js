@@ -2,7 +2,7 @@ module.exports = {
   home: {
     bouqets: '🔥 Реклама',
     packaging: '☄️ Упаковка',
-    bro: 'Отправить другу',
+    bro: 'Отправить другу 👍🏻',
     content: '💥 Контент',
     cart: '🤝 Заказы'
   },
