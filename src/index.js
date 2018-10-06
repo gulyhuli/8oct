@@ -79,7 +79,7 @@ bot.onText(/^\/[a-zA-Z]+$/, msg => {
     case '/help':
       bot.sendMessage(id, helper.description).then(() => {
 	      
-	       bot.sendMessage(id, helper.description)), 
+	       bot.sendMessage(id, helper.description), 
 		return bot.sendMessage(id, helper.description){
 			
 			    
