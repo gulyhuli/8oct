@@ -178,26 +178,7 @@ module.exports = {
     })
 
     Promise.all(promises)
-      .then(() => {
-        let inlineKeyboard = []
-        if (page > 1 && page !== pageTotal) {
-          inlineKeyboard = [
-            [{text: '️️⬅️ Предыдущая', callback_data: `lessPrice ${cb_data}`}],
-            [{text: 'Следующая ➡', callback_data: `morePrice ${cb_data}`}]
-          ]
-        } else if (page === 1) {
-          inlineKeyboard = [
-            [{text: 'Следующая ➡️️', callback_data: `morePrice ${cb_data}`}]
-          ]
-        } else if (page === pageTotal) {
-          inlineKeyboard = [
-            [{text: '️️⬅️ Предыдущая', callback_data: `lessPrice ${cb_data}`}],
-            [{text: '️️🚀 В начало', callback_data: `startPrice ${cb_data}`}]
-          ]
-        }
-        return bot.sendMessage(user.userId, `Показано ${(limit*page) >= count ? count : (limit*page)} элементов из ${count}\nСтраница ${page} из ${pageTotal}`, {
-          reply_markup: {
-            inline_keyboard: inlineKeyboard
+     
           }
         })
     }).catch(err => console.log(err))
