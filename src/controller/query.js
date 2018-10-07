@@ -72,7 +72,9 @@ module.exports = {
                   [{text: '️️🚀 В начало', callback_data: `start ${query}`}]
                 ]
               }
-              return bot.sendMessage(user.userId, `Показано ${(limit*page) >= number ? number : (limit*page)} элементов из ${number}\nСтраница ${page} из ${pageTotal}`, {
+              return bot.sendMessage(user.userId, `/packaging 
+/content
+Нажмите для просмотра другого товара.`, {
                 reply_markup: {
                   inline_keyboard: inlineKeyboard
                 }
