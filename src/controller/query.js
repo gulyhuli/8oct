@@ -76,6 +76,8 @@ module.exports = {
 /content
 Нажмите для просмотра другого товара.`, {
                 reply_markup: {
+                                    inline_keyboard: inlineKeyboard
+
         
                 }
               })
