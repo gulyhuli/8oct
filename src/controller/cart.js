@@ -73,7 +73,7 @@ module.exports = {
               reply_markup: {
                 inline_keyboard: [
                   [{text: `🗑️ Очистить корзину`, callback_data: 'clear'}],
-                  [{text: `🌸 Оформить заказ`, callback_data: 'order'}]
+                  [{text: `🤘🏼 Оформить заказ`, callback_data: 'order'}]
                 ]
               }
             })
