@@ -184,7 +184,7 @@ bot.on('callback_query', msg => {
 
           bot.answerCallbackQuery({
             callback_query_id: msg.id,
-            text: `Показаны все ${itemText}`
+            text: ``
           }).then(() => QueryController.findByQuery(user, showItem))
           break
 
