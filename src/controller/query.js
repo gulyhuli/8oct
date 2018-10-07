@@ -72,7 +72,9 @@ module.exports = {
                   [{text: '️️🚀 В начало', callback_data: `start ${query}`}]
                 ]
               }
-              return bot.sendMessage(user.userId, `/packaging 
+              return bot.sendMessage(user.userId, `
+/ads
+/packaging 
 /content
 Нажмите для просмотра другого товара.`, {
                 reply_markup: {
